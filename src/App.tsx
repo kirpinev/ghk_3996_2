@@ -10,23 +10,25 @@ import { LS, LSKeys } from "./ls";
 import { appSt } from "./style.css";
 import { ThxLayout } from "./thx/ThxLayout";
 import { Gap } from "@alfalab/core-components/gap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
 export const App = () => {
-  const [loading, setLoading] = useState(false);
   const [thxShow, setThx] = useState(LS.getItem(LSKeys.ShowThx, false));
 
   const submit = () => {
-    setLoading(true);
-    Promise.resolve().then(() => {
-      setLoading(false);
-      LS.setItem(LSKeys.ShowThx, true);
-      setThx(true);
-    });
+    window.gtag("event", "3996_click_like_var1");
+    LS.setItem(LSKeys.ShowThx, true);
+    setThx(true);
   };
+
+  useEffect(() => {
+    if (!LS.getItem(LSKeys.ShowThx, false)) {
+      window.gtag("event", "3996_page_view_choose_sim_var1");
+    }
+  }, []);
 
   if (thxShow) {
     return <ThxLayout />;
@@ -214,7 +216,7 @@ export const App = () => {
       <Gap size={72} />
 
       <div className={appSt.bottomBtn}>
-        <ButtonMobile block view="primary" loading={loading} onClick={submit}>
+        <ButtonMobile block view="primary" onClick={submit}>
           Выбрать
         </ButtonMobile>
       </div>

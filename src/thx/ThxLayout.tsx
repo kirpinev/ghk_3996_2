@@ -1,8 +1,13 @@
 import { Typography } from "@alfalab/core-components/typography";
 import moai from "../assets/img.png";
 import { thxSt } from "./style.css";
+import { useEffect } from "react";
 
 export const ThxLayout = () => {
+  useEffect(() => {
+    window.gtag("event", "3996_end_page_view_like_var1");
+  }, []);
+
   return (
     <>
       <div className={thxSt.container}>
