@@ -81,7 +81,7 @@ export const App = () => {
                 className={appSt.productsTitle}
                 style={{ fontSize: "30px" }}
               >
-                700 ₽
+                600 ₽
               </Typography.TitleResponsive>
               <Gap size={24} />
             </div>
@@ -139,7 +139,7 @@ export const App = () => {
                     view="primary-small"
                     style={{ marginBottom: 0 }}
                   >
-                    Кэшбэк за пополнение счета
+                    Кэшбэк за первое пополнение баланса
                   </Typography.Text>
                   <Typography.Text
                     tag="p"
